@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+<body>
+    <main class="quizz">
+        <div class="start-menu">
+            <div class="quizz-titles">
+                <h2 class="header">Quizz Trivia</h2>
+            </div>
+
+            <div class="categories-content">
+                Choose a Category!
+                <div class="categories">
+                    <img data-question-count="5 questions" data-category="sports" class="category sport" src="images/sport.png" alt="">
+                    <img data-question-count="4 questions" data-category="literature" class="category literature" src="images/literature.png" alt="">
+                    <img data-question-count="5 questions" data-category="science" class="category science" src="images/science.png" alt="">
+                </div>
+            </div>
+            
+            <div class="play">
+                <button class="btn-play">Play</button>
+                <div class="quizz-info">
+                    <span class="category-questions"></span>
+                    <div>
+                        <input type="checkbox" name="timer" id="timer">
+                        <label for="timer">Timer</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="show-table">
+                <i class="fa-solid fa-eye"></i>
+            </div>
+
+            <div class="table-container hidden">
+                <div class="close">x</div>
+                <div class="first-table">
+                    <div class="header">Stats For Total Answers Per Category</div>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Correct Answers</th>
+                                <th>Wrong Answers</th>
+                            </tr>
+                        </thead>
+                        <tbody class="first-table-body">
+                            <tr>
+                                <td>Someting</td>
+                                <td>123</td>
+                                <td>534</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="second-table">
+                    <div class="header">Stats For Total Answers</div>
+                    <table class="stats-table-total">
+                        <thead>
+                            <tr>
+                                <th>Total Correct Answers</th>
+                                <th>Total Wrong Answers</th>
+                            </tr>
+                        </thead>
+                        <tbody class="second-table-body">
+                            <tr>
+                                <td>123</td>
+                                <td>534</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="third-table">
+                    
+                    <div class="header">Current Session Stats Per Game</div>
+                    <table class="stats-table-current">
+                        <thead>
+                            <tr>
+                                <th>N</th>
+                                <th>Category</th>
+                                <th>Correct</th>
+                                <th>Wrong</th>
+                            </tr>
+                        </thead>
+                        <tbody class="third-table-body">
+                            <tr>
+                                <td>1</td>
+                                <td>something</td>
+                                <td>734</td>
+                                <td>534</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="game hidden">
+            <div class="top">
+                <div class="category-header">Literature</div>
+                <ul class="numbers">
+                    <li class="timer">
+                        <div class="timer-content"></div>
+                        <span class="quizz-timer">0</span>
+                    </li>
+                    <li class="count">4 of 14</li>
+                    <li class="score">score: <span class="points">0</span></li>
+                </ul>
+            </div>
+            <div class="quizz-container">
+                <div class="question"></div>
+                <div class="options"></div>
+                <button class="next-question">Next <i class="fa-solid fa-arrow-right"></i> </button>
+            </div>
+        </div>
+
+        <div class="end-game hidden">
+            <div class="header">
+                Quizz Results:
+            </div>
+
+            <div class="quizz-results">
+                <div class="results">
+                    <div class="answers"></div>
+                    <div> Final score: <span class="score"></span></div>
+                </div>
+                <button class="play-again"><i class="fa-solid fa-arrow-rotate-right"></i>Play Again</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,507 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+main.quizz {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right top, #df4c00, #ed7400, #f69a00, #fbbe00, #fbe300);
+}
+
+.start-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    border-radius: 0.25rem;
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+    box-shadow: 0 16px 70px rgba(0, 0, 0, .3);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.start-menu .quizz-titles {
+    display: flex;
+    justify-content: center;
+}
+
+.start-menu .quizz-titles .header {
+    padding: 0.5rem 0.5rem 0;
+    letter-spacing: 2px;
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    color: #ff0101;
+}
+
+.start-menu .show-table {
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    cursor: pointer;
+    color: #a7a7a7;
+}
+
+
+.start-menu .categories {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.start-menu .categories > * {
+
+    background-color: #fde618;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.start-menu .categories .literature {
+    background-color: #d0df00;
+}
+
+.start-menu .categories .science {
+    background-color: #ff6d24;
+}
+
+
+.start-menu .categories img {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+}
+
+.start-menu .categories-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.44rem;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+}
+
+.start-menu .table-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.5rem 1rem;
+    z-index: 3;
+    border: 1px solid rgba(139, 139, 139, 0.3);
+    background-color: white;
+    width: 60%;
+    height: 100%;
+    overflow-y: scroll;
+    box-shadow: 0 16px 70px rgba(0, 0, 0, .3);
+}
+
+.start-menu .table-container.hidden {
+    display: none;
+}
+
+.start-menu .table-container .header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    padding-bottom: 0.5rem;
+}
+
+.start-menu .table-container table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.start-menu .table-container thead tr th {
+    padding: 0.665rem;
+    background-color: black;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+}
+
+.start-menu .table-container tbody tr {
+    border: 1px solid rgba(139, 139, 139, 0.3);
+}
+
+.start-menu .table-container tbody tr td {
+    padding: 0.665rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+}
+
+.start-menu .table-container .close {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 2%;
+    top: 2%;
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.5rem;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    line-height: 0.5rem; 
+    background-color: #666666;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.start-menu .play {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.start-menu .play .btn-play {
+    border: none;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    background-color: #ff0101;
+    color: white;
+    cursor: pointer;
+}
+
+.start-menu .play .quizz-info {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+.selected {
+    outline: 2px solid #5a50dd;
+}
+
+
+/* Game */
+
+
+
+.game {
+    position: absolute;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ff0101;
+    border-radius: 0.5rem;
+    transition: height 250ms ease-in-out;
+}
+
+.game .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.game .top .category-header {
+    font-style: italic;
+    font-weight: 500;
+}
+
+.game .top .numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.game .top .timer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.quizz-timer {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timer-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: conic-gradient(white 0deg 6deg, orange 6deg 360deg);
+}
+
+.game .top .numbers .score {
+    position: relative;
+    padding: 0.4rem;
+    background-color: #6bb12a;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.game .top .numbers .score.increase-points::after {
+    content: "+500";
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    opacity: 0;
+    background-color: transparent;
+    border-radius: 0.3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: top 450ms ease-in-out,
+                opacity 450ms ease-in-out;
+    animation: scoreAnimation 450ms ease-in-out;
+}
+
+@keyframes scoreAnimation {
+    from {
+        opacity: 1;
+        top: 0;
+    }
+    to {
+        opacity: 0;
+        top: -20%;
+    }
+}
+
+@keyframes correctAnimation {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes wrongAnimation {
+    from {
+        transform: translateX(-0.6rem);
+    }
+    to {
+        transform: translateX(0.6rem);
+    }
+}
+
+.game .top .numbers .count {
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+    border: 2px solid #666666;
+    font-size: 0.8rem;
+}
+
+.game .quizz-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: #f69c008a;
+    border-top: 1px solid #ff0101;
+}
+
+.game .quizz-container .question {
+    font-size: 1.3rem;
+    font-weight: 500;
+    width: 80%;
+    font-family: 'Afacad Flux', sans-serif;
+}
+
+.game .quizz-container button.next-question {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    color: white;
+    background-color: #ff0101;
+    border-radius: 0.3rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+
+.game .quizz-container .options {
+    display: flex;
+    width: 80%;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.game .quizz-container .options .option {
+    width: 45%;
+    padding: 0.5rem 1rem;
+    position: relative;
+    background-color: white;
+    border-radius: 0.3rem;
+    border: 2px solid #ff9101;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transform: scale(1);
+    transition: border 200ms ease-in,
+                transform 200ms ease-out;
+    
+}
+
+.game .quizz-container .options .option:hover {
+    border-color: #470097;
+}
+
+
+
+
+.quizz-container .options .option.correct {
+    border-color: #6bb12a;
+    animation: correctAnimation 200ms ease-out;
+    
+}
+
+.quizz-container .options .option.wrong {
+    border-color: #ff0101;
+    animation: wrongAnimation 150ms ease-in-out;
+    animation-iteration-count: 2;
+}
+
+.quizz-container .options .targeted.wrong::before {
+    content: "x";
+    position: absolute;
+    color: white;
+    right: 0;
+    transform: translateX(50%);
+    top: -25%;
+    width: 1.2em;
+    height: 1.2em;
+    line-height: 0.75em;
+    padding: 0.15rem;
+    border-radius: 50%;
+    background-color: #ff0101;
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+  
+
+.quizz-container .options .targeted.correct::before {
+    content: "✔";
+    position: absolute;
+    color: white;
+    right: 0;
+    transform: translateX(50%);
+    top: -25%;
+    width: 1.2em;
+    height: 1.2em;
+    line-height: 0.8em;
+    padding: 0.2em;
+    border-radius: 50%;
+    background-color: #6bb12a;
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+.quizz-container .options .option.leftover {
+    background-color: rgb(184, 184, 184);
+    border-color: #535353;
+}
+
+
+.end-game {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ff0101;
+    border-radius: 0.4rem;
+}
+
+.end-game .header {
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+}
+
+.end-game .quizz-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.end-game .quizz-results .results{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    padding: 2rem;
+}
+
+.end-game .play-again {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    color: white;
+    background-color: #ff0101;
+    border-radius: 0.3rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+.game.hidden {
+    display: none;
+}
+
+.end-game.hidden{
+    display: none;
+}
+
+.start-menu.hidden {
+    display: none;
+}
