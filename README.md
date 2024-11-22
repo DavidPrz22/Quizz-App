@@ -9,3 +9,9 @@
 1. HTML
 2. JAVASCRIPT
 3. CSS
+
+# Quizz Tech
+
+1. HTML
+2. JAVASCRIPT
+3. CSS
